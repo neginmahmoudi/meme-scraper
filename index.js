@@ -22,7 +22,6 @@ const div = $('section > div');
 // recieve all parents of images
 const src = [];
 div.each(function () {
-
   src.push($(this).find('img').attr('src'));
 });
 
