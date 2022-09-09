@@ -11,8 +11,7 @@ const $ = cheerio.load(body);
 // directory path
 const dir = './memes';
 fs.mkdir(dir, (err) => {
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  if (dir) return;
+  if (dir.length) return;
   if (err) {
     throw err;
   }
