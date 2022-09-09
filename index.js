@@ -1,5 +1,5 @@
+import * as fs from 'node:fs';
 import * as cheerio from 'cheerio';
-import * as fs from 'fs';
 import fetch from 'node-fetch';
 
 const response = await fetch(
@@ -11,17 +11,18 @@ const $ = cheerio.load(body);
 // directory path
 const dir = './memes';
 fs.mkdir(dir, (err) => {
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (dir) return;
   if (err) {
     throw err;
   }
 });
 
-let div = $('section > div');
+const div = $('section > div');
 // recieve all parents of images
-let src = [];
+const src = [];
 div.each(function () {
-  //add this value to the array
+
   src.push($(this).find('img').attr('src'));
 });
 
